@@ -130,3 +130,6 @@ dmypy.json
 
 #flask env
 .flaskenv
+
+config_old.py
+*.ini

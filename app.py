@@ -1,14 +1,14 @@
 from dotenv import load_dotenv
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_sqlalchemy import text
-
-load_dotenv()
+from config import config
 
 app = Flask(__name__)
 
+params = config()
+
 #'postgresql://username:password@host:port/database'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://zgnojbpnkhoqmx:5d8d7241e51758b68ce3aa6c365d746d4ea3b8a711a2b5d31c33100ef7a6705a@ec2-44-196-146-152.compute-1.amazonaws.com:5432/d26fib3rqoq9p1'
+app.config['SQLALCHEMY_DATABASE_URI'] = params
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 database = SQLAlchemy(app)
